@@ -59,21 +59,21 @@ class TrackNode:
         #elif direction = 
 
 class RoadSegment:
-    def __init__(self,node,max_velocity)
+    def __init__(self,node,max_velocity):
         self.node = node
         self.MaxVelocity = max_velocity
 
 class Road:
     def __init__(self):
-        self.trackStart = new TrackNode(None,None,None,None)
-        self.trackPosition = trackStart
-        self.trackPointer = new Vector(Direction.right,1)
+        self.trackStart = TrackNode(None,None,None,None)
+        self.trackPosition = self.trackStart
+        self.trackPointer = Vector(Direction.right,1)
 
     def insertRoadSegment(self,segment):
-        opositeDirection = ((trackPointer.direction+2)%4)
-        segment.node.nodes[opositeDirection] = trackPosition.node.nodes[trackPointer.direction]
-        trackPosition.node.nodes[trackPointer.direction] = segment
-        trackPosition.node = segment
+        opositeDirection = ((self.trackPointer.direction+2)%4)
+        segment.node.nodes[opositeDirection] = self.trackPosition.node.nodes[self.trackPointer.direction]
+        self.trackPosition.node.nodes[self.trackPointer.direction] = segment
+        self.trackPosition.node = segment
     
 
 
@@ -85,20 +85,20 @@ class Population:
 class Map:
     def __init__(self):
         self.roads = []
-        self.population = new Population()
+        self.population = Population()
         
 class Sandbox:
     def __init__(self):
-        self.map = new Map()
+        self.map = Map()
         self.configuration = getConfigurationInstance()
     
 
 sandbox = None
 def getSandboxInstance(self):
-    if(sandbox)
-        return sandbox
-    sandbox = new Sandbox()
-    return sandbox
+    if self.sandbox:
+        return self.sandbox
+    self.sandbox = Sandbox()
+    return self.sandbox
 
 class Vector:
     def __init__(self,direction,magnitude):
@@ -107,13 +107,13 @@ class Vector:
 
 
 # configuration
-class configurationsingleton:
+class ConfigurationSingleton:
     def __init__(self,timestep):
         self.timestep = timestep
         self.configuration = self
 
 Configuration = None
-def getConfigurationInstance()
-    if Configuration == None:
-        Configuration = new ConfigurationSingleton(1);
+def getConfigurationInstance(self):
+    if self.Configuration == None:
+        self.Configuration = ConfigurationSingleton(1)
     return Configuration
